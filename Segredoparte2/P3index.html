@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pergunta 3</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .menu-centro {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        }
+
+        .voltar-img {
+        width: 48px;
+        height: auto;
+        }
+
+        .heart {
+        font-size: 48px;
+        cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Terceira pergunta</h1>
+        <!--<button onclick="mostrarMensagem()">Clique aqui</button><p id="mensagem"></p>
+        <script>
+        function mostrarMensagem() {
+          const nome = prompt("Pico Golias (anagrama)");
+          
+          if (nome === "psicologia") {
+            document.getElementById("mensagem").textContent = "O que a menina da cidade mais gosta quando está junto com o batman?";
+          } else {
+            document.getElementById("mensagem").textContent = "Tente novamente!";
+          }
+        }
+      </script> -->
+      <p style="font-size: 26px; height: 0cm;">(anagrama)</p>
+      <p>Pico Golias</p>
+      <input type="text" id="nomeInput" placeholder="Resposta">
+        <button onclick="verificarNome()">Enviar</button>
+        <p id="mensagem"></p>
+        <script>
+            function verificarNome() {
+            const nome = document.getElementById("nomeInput").value; 
+                                         
+            if (nome.toLowerCase() === "psicologia") {
+                document.getElementById("mensagem").textContent = "O que a menina da cidade mais gosta quando está junto com o batman?";
+            } else {
+                document.getElementById("mensagem").textContent = "Tente Novamente!";
+            }
+            }
+        </script>
+    <div class="menu-centro">
+        <a href="index.html"><img src="midia/voltar.png" alt="Voltar" class="voltar-img"></a>
+        <div class="heart" onclick="showMessage()"><abbr title="Dica">💡</abbr></div> 
+      </div>
+      
+      <p id="mensagem" style="text-align: center; font-size: 30px; margin-top: 500px;"></p>
+      
+      <script>
+        function showMessage() {
+          document.getElementById("mensagem").textContent = "Uma palavra, Você gosta muito!";
+        }
+      </script>
+        <!--dica: Uma palavra, você gosta muito!-->
+</body>
+</html>

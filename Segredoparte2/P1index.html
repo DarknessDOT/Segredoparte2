@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pergunta 1</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .menu-centro {
+        position: absolute;
+        top: 27%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        }
+
+        .voltar-img {
+        width: 48px;
+        height: auto;
+        }
+
+        .heart {
+        font-size: 48px;
+        cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Primeira pergunta</h1>
+    <p>-.-. --- -- / --.- ..- .- .-.. / .--. .- .-.. .- ...- .-. .- / .- / -- . -. .. -. .- / -.. .- / -.-. .. -.. .- -.. . / .--. --- -.. . / -.. . ... -.-. .-. . ...- . .-. / --- --.- ..- . / ... . -. - . / .--. . .-.. --- / -... .- - -- .- -. ..--..</p>
+
+    <div class="menu-centro">
+        <a href="index.html"><img src="midia/voltar.png" alt="Voltar" class="voltar-img"></a>
+        <div class="heart" onclick="showMessage()"><abbr title="Dica">💡</abbr></div> 
+      </div>
+      
+      <p id="mensagem" style="text-align: center; font-size: 30px; margin-top: 150px;"></p>
+      
+      <script>
+        function showMessage() {
+          document.getElementById("mensagem").textContent = "Morse";
+        }
+      </script>
+</body>
+</html>

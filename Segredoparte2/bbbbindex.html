@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Quer namorar comigo?</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffe6f0, #ffc1cc);
+      position: relative;
+    }
+
+    .floating-heart {
+      position: absolute;
+      font-size: 24px;
+      color: #ff4d6d;
+      animation: float 10s linear infinite;
+      opacity: 0.5;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) translateX(0);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) translateX(50px);
+        opacity: 0;
+      }
+    }
+
+    .container {
+      text-align: center;
+      z-index: 2;
+    }
+
+    h1 {
+      color: #d6336c;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      position: relative;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    #yesBtn {
+      background-color: #28a745;
+      color: white;
+    }
+
+    #noBtn {
+      background-color: #dc3545;
+      color: white;
+      position: relative;
+      z-index: 10;
+    }
+
+    .heart {
+      position: absolute;
+      color: #ff4d6d;
+      font-size: 24px;
+      animation: floatUp 3s ease-out forwards;
+      z-index: 3;
+    }
+
+    @keyframes floatUp {
+      0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-200px) scale(1.5);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Corações flutuando no fundo -->
+  <script>
+    for (let i = 0; i < 20; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('floating-heart');
+      heart.textContent = '❤️';
+      heart.style.left = `${Math.random() * 100}%`;
+      heart.style.animationDuration = `${8 + Math.random() * 5}s`;
+      heart.style.fontSize = `${16 + Math.random() * 20}px`;
+      document.body.appendChild(heart);
+    }
+  </script>
+
+  <div class="container">
+    <h1>Quer namorar comigo?</h1>
+    <div class="buttons">
+      <button id="yesBtn">Sim</button>
+      <button id="noBtn">Não</button>
+    </div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById('yesBtn');
+
+    document.addEventListener('mousemove', (e) => {
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+
+      const rect = noBtn.getBoundingClientRect();
+      const btnCenterX = rect.left + rect.width / 2;
+      const btnCenterY = rect.top + rect.height / 2;
+
+      const distance = Math.hypot(mouseX - btnCenterX, mouseY - btnCenterY);
+
+      if (distance < 100) {
+        const maxX = window.innerWidth - noBtn.offsetWidth;
+        const maxY = window.innerHeight - noBtn.offsetHeight;
+
+        const newX = Math.floor(Math.random() * maxX);
+        const newY = Math.floor(Math.random() * maxY);
+
+        // Torna o botão fixo quando se move
+        noBtn.style.position = 'fixed';
+        noBtn.style.left = `${newX}px`;
+        noBtn.style.top = `${newY}px`;
+      }
+    });
+
+    yesBtn.addEventListener('click', () => {
+      alert('Sabia que você ia dizer sim! ❤️');
+
+      for (let i = 0; i < 30; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.textContent = '❤️';
+        heart.style.left = `${Math.random() * window.innerWidth}px`;
+        heart.style.top = `${window.innerHeight}px`;
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 3000);
+      }
+    });
+  </script>
+</body>
+</html>

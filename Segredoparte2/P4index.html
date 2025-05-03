@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pergunta 4</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        p {
+        text-align: justify;
+        text-justify: inter-word;
+        padding-left: 520px;
+        padding-right: 520px;
+    }
+        #mensagem {
+         text-align: center;
+    }
+    .menu-centro {
+        position: absolute;
+        top: 51%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        }
+
+        .voltar-img {
+        width: 48px;
+        height: auto;
+        }
+
+        .heart {
+        font-size: 48px;
+        cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quarta pergunta</h1>
+      <p>Se o seu amor preenche o meu coração e dobra de tamanho a cada dia, sabendo que em 48 dias o seu amor preenche o meu coração por completo, em quantos dias o seu amor preenche metade do meu coração?</p>
+      <input type="number" id="nomeInput" placeholder="Resposta">
+        <button onclick="verificarNome()">Enviar</button>
+        <p id="mensagem"></p>
+
+        <script>
+        function verificarNome() {
+            const nome = parseInt(document.getElementById("nomeInput").value); // converte para número
+
+            if (nome === 47) {
+            document.getElementById("mensagem").textContent = 
+                "O batman está na curiosidade de mais uma questão que a menina da cidade o deixou intrigado. O batman está merecendo o 'sim' no pedido tão aguardado?";
+            } else {
+            document.getElementById("mensagem").textContent = "Tente Novamente!";
+            }
+        }
+        </script>
+        <div class="menu-centro">
+            <a href="index.html"><img src="midia/voltar.png" alt="Voltar" class="voltar-img"></a>
+            <div class="heart" onclick="showMessage()"><abbr title="Dica">💡</abbr></div> 
+        </div>
+        
+        <p id="mensagem" style="text-align: center; font-size: 30px; margin-top: 80px;"></p>
+        
+        <script>
+            function showMessage() {
+            document.getElementById("mensagem").textContent = "A metade vem antes do Total!";
+            }
+        </script>
+</html>
